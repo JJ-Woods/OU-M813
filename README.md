@@ -1,2 +1,2 @@
 # OU-M813
-Software developed as part of M813 coursework for Open University Masters.
+Software developed as part of the module "Software Development" (M813) for my Open University Masters Degree.
