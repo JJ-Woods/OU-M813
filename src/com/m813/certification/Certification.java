@@ -1,32 +1,28 @@
 package com.m813.certification;
 
-public abstract class Certification implements ICertification
+public abstract class Certification
 {
     private CertificationAgency CertificationAgency;
 
     private CertificationLevel CertificationLevel;
 
-    @Override
     public CertificationAgency getCertificationAgency()
     {
-        return CertificationAgency;
+        return this.CertificationAgency;
     }
 
-    @Override
     public void setCertificationAgency(CertificationAgency certificationAgency)
     {
-        CertificationAgency = certificationAgency;
+        this.CertificationAgency = certificationAgency;
     }
 
-    @Override
     public CertificationLevel getCertificationLevel()
     {
-        return CertificationLevel;
+        return this.CertificationLevel;
     }
 
-    @Override
     public void setCertificationLevel(CertificationLevel certificationLevel)
     {
-        CertificationLevel = certificationLevel;
+        this.CertificationLevel = certificationLevel;
     }
 }

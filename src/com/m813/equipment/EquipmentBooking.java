@@ -11,7 +11,7 @@ public class EquipmentBooking
 
     private Course Course;
 
-    private IEquipment Equipment;
+    private Equipment Equipment;
 
     private Date StartDate;
 
@@ -19,51 +19,51 @@ public class EquipmentBooking
 
     public Member getMember()
     {
-        return Member;
+        return this.Member;
     }
 
     public void setMember(Member member)
     {
-        Member = member;
+        this.Member = member;
     }
 
     public Course getCourse()
     {
-        return Course;
+        return this.Course;
     }
 
     public void setCourse(Course course)
     {
-        Course = course;
+        this.Course = course;
     }
 
-    public IEquipment getEquipment()
+    public Equipment getEquipment()
     {
-        return Equipment;
+        return this.Equipment;
     }
 
-    public void setEquipment(IEquipment equipment)
+    public void setEquipment(Equipment equipment)
     {
-        Equipment = equipment;
+        this.Equipment = equipment;
     }
 
     public Date getStartDate()
     {
-        return StartDate;
+        return this.StartDate;
     }
 
     public void setStartDate(Date startDate)
     {
-        StartDate = startDate;
+        this.StartDate = startDate;
     }
 
     public Date getEndDate()
     {
-        return EndDate;
+        return this.EndDate;
     }
 
     public void setEndDate(Date endDate)
     {
-        EndDate = endDate;
+        this.EndDate = endDate;
     }
 }
