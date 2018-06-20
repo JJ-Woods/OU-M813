@@ -1,6 +1,6 @@
 package com.m813.repositories;
 
-import com.m813.membership.*;
+import com.m813.datamodel.membership.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;

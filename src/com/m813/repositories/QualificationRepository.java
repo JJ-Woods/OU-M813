@@ -1,6 +1,6 @@
 package com.m813.repositories;
 
-import com.m813.certification.*;
+import com.m813.datamodel.certification.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;

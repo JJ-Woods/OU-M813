@@ -1,8 +1,8 @@
 package com.m813.repositories;
 
-import com.m813.equipment.*;
-import com.m813.membership.*;
-import com.m813.training.*;
+import com.m813.datamodel.equipment.*;
+import com.m813.datamodel.membership.*;
+import com.m813.datamodel.training.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Date;
