@@ -1,11 +1,11 @@
-package com.m813.controllers;
+package com.m813.repositories;
 
 import com.m813.membership.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
-public class Membership
+public class MembershipRepository
 {
     private List<Member> allMembers;
 
@@ -31,7 +31,7 @@ public class Membership
         throw new NotImplementedException();
     }
 
-    public Member[] getMembersByQualification(Qualification cert)
+    public Member[] getMembersByQualification(QualificationRepository cert)
     {
         throw new NotImplementedException();
     }
@@ -51,19 +51,19 @@ public class Membership
         throw new NotImplementedException();
     }
 
-    public Boolean updateMemberQualification(Member mem, Qualification cert)
+    public Boolean updateMemberQualification(Member mem, QualificationRepository cert)
     {
         throw new NotImplementedException();
     }
 
-    public Member createMember(String name, String email, MemberRole role, Qualification[] quals)
+    public Member createMember(String name, String email, MemberRole role, QualificationRepository[] quals)
     {
         throw new NotImplementedException();
     }
 
     public Member createMember(String name, String email)
     {
-        return createMember(name, email, MemberRole.MEMBER, new Qualification[]{});
+        return createMember(name, email, MemberRole.MEMBER, new QualificationRepository[]{});
     }
 
     public Member createMember(String name, String email, MemberRole role)
@@ -71,7 +71,7 @@ public class Membership
         return createMember(name, email, role, null);
     }
 
-    public Member createMember(String name, String email, Qualification[] quals)
+    public Member createMember(String name, String email, QualificationRepository[] quals)
     {
         return createMember(name, email, MemberRole.MEMBER, quals);
     }

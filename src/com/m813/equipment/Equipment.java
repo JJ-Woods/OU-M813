@@ -2,7 +2,7 @@ package com.m813.equipment;
 
 import java.util.Date;
 
-public abstract class Equipment
+public class Equipment
 {
     private String EquipmentName;
 

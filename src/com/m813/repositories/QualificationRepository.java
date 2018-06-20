@@ -1,11 +1,11 @@
-package com.m813.controllers;
+package com.m813.repositories;
 
 import com.m813.certification.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
-public class Qualification
+public class QualificationRepository
 {
     private List<Certification> allQualifications;
 
