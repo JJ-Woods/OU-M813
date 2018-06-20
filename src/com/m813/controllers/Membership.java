@@ -1,6 +1,5 @@
 package com.m813.controllers;
 
-import com.m813.certification.*;
 import com.m813.membership.*;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
@@ -32,7 +31,7 @@ public class Membership
         throw new NotImplementedException();
     }
 
-    public Member[] getMembersByQualification(Certification cert)
+    public Member[] getMembersByQualification(Qualification cert)
     {
         throw new NotImplementedException();
     }
@@ -52,19 +51,19 @@ public class Membership
         throw new NotImplementedException();
     }
 
-    public Boolean updateMemberQualification(Member mem, Certification cert)
+    public Boolean updateMemberQualification(Member mem, Qualification cert)
     {
         throw new NotImplementedException();
     }
 
-    public Member createMember(String name, String email, MemberRole role, Certification[] quals)
+    public Member createMember(String name, String email, MemberRole role, Qualification[] quals)
     {
         throw new NotImplementedException();
     }
 
     public Member createMember(String name, String email)
     {
-        return createMember(name, email, MemberRole.MEMBER, new Certification[]{});
+        return createMember(name, email, MemberRole.MEMBER, new Qualification[]{});
     }
 
     public Member createMember(String name, String email, MemberRole role)
@@ -72,7 +71,7 @@ public class Membership
         return createMember(name, email, role, null);
     }
 
-    public Member createMember(String name, String email, Certification[] quals)
+    public Member createMember(String name, String email, Qualification[] quals)
     {
         return createMember(name, email, MemberRole.MEMBER, quals);
     }
@@ -83,6 +82,21 @@ public class Membership
     }
 
     public MemberCategory[] getCategorieByName(String name)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Boolean updateCategoryName(MemberCategory cat, String name)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Boolean updateCategoryDuration(MemberCategory cat, int duration)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Boolean updateCategoryCost(MemberCategory cat, float cost)
     {
         throw new NotImplementedException();
     }

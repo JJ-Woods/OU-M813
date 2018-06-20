@@ -1,10 +1,22 @@
 package com.m813.certification;
 
-public abstract class Certification
+public class Certification
 {
+    private String CertificationName;
+
     private CertificationAgency CertificationAgency;
 
     private CertificationLevel CertificationLevel;
+
+    public String getCertificationName()
+    {
+        return this.CertificationName;
+    }
+
+    public void setCertificationName(String certificationName)
+    {
+        this.CertificationName = certificationName;
+    }
 
     public CertificationAgency getCertificationAgency()
     {
