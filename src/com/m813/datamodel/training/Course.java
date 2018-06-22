@@ -37,12 +37,12 @@ public class Course
         this.Students.add(student);
     }
 
-    public com.m813.datamodel.training.Programme getProgramme()
+    public Programme getProgramme()
     {
         return this.Programme;
     }
 
-    public void setProgramme(com.m813.datamodel.training.Programme programme)
+    public void setProgramme(Programme programme)
     {
         this.Programme = programme;
     }
