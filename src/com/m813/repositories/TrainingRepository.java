@@ -1,12 +1,12 @@
 package com.m813.repositories;
 
+import com.m813.NotImplementedException;
 import com.m813.datamodel.membership.*;
 import com.m813.datamodel.training.*;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
-public class TrainingRepository
+public class TrainingRepository extends RepositoryBase
 {
     private List<Course> allCourses;
 

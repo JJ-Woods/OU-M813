@@ -1,13 +1,14 @@
 package com.m813.datamodel.membership;
 
+import com.m813.datamodel.IEntity;
 import com.m813.datamodel.certification.*;
 
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
-public class Member
+public class Member extends IEntity
 {
-    private int MemberId;
-
     private String MemberName;
 
     private String MemberEmail;
@@ -18,14 +19,16 @@ public class Member
 
     private List<Certification> Qualifications;
 
-    public int getMemberId()
-    {
-        return this.MemberId;
-    }
+    private Date MembershipStart;
 
-    public void setMemberId(int memberId)
+    public Member(String id, String name, String email, MemberRole role, MemberCategory category, Date membershipStart)
     {
-        this.MemberId = memberId;
+        Id = id;
+        MemberName = name;
+        MemberEmail = email;
+        MemberRole = role;
+        MemberCategory = category;
+        MembershipStart = membershipStart;
     }
 
     public String getMemberName()
@@ -48,12 +51,12 @@ public class Member
         this.MemberEmail = memberEmail;
     }
 
-    public com.m813.datamodel.membership.MemberRole getMemberRole()
+    public MemberRole getMemberRole()
     {
         return this.MemberRole;
     }
 
-    public void setMemberRole(com.m813.datamodel.membership.MemberRole memberRole)
+    public void setMemberRole(MemberRole memberRole)
     {
         this.MemberRole = memberRole;
     }
@@ -81,5 +84,35 @@ public class Member
     public void addQualification(Certification cert)
     {
         this.Qualifications.add(cert);
+    }
+
+    public Date getMembershipStart()
+    {
+        return this.MembershipStart;
+    }
+
+    public void setMembershipStart(Date date)
+    {
+        this.MembershipStart = date;
+    }
+
+    public Date getMembershipEnd()
+    {
+        //could get properties direct, but time formatting may occur in getters
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(getMembershipStart());
+        int memDuration = getMemberCategory().getCategoryDuration();
+
+        cal.add(Calendar.MONTH, memDuration);
+
+        return cal.getTime();
+    }
+
+    public Boolean isCurrentMember()
+    {
+        Date today = new Date();
+        Date membershipEnd = getMembershipEnd();
+
+        return today.before(membershipEnd);
     }
 }

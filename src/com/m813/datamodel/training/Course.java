@@ -1,5 +1,6 @@
 package com.m813.datamodel.training;
 
+import com.m813.NotImplementedException;
 import com.m813.datamodel.membership.*;
 
 import java.util.List;

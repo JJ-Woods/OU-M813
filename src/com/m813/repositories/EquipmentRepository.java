@@ -1,136 +1,64 @@
 package com.m813.repositories;
 
 import com.m813.datamodel.equipment.*;
-import com.m813.datamodel.membership.*;
-import com.m813.datamodel.training.*;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.Date;
-import java.util.List;
+import java.util.HashMap;
 
-public class EquipmentRepository
+public class EquipmentRepository extends RepositoryBase<Equipment>
 {
-    private List<Equipment> allEquipment;
-
-    private List<EquipmentBooking> allBookings;
-
-    public Equipment[] getAllEquipment()
+    /*
+    * @Identifier = SO1
+    * @Invariant = True
+    * @Precondition:
+    *     --purchased must be on or before the date the function is executed
+    *     --category, name, brand, description, purchased must not be null or empty string
+    * @Postcondition:
+    *     --return an object of the new EquipmentRecord
+    *     --which exists in the repository
+    *     --who main attributes are initialized and not null
+    *     --or return null
+    *     --with error messages in the error dictionary
+    */
+    public Equipment createEquipment(Class<? extends Equipment> type, String name, EquipmentBrand brand,
+                                     Date purchased, Date lastService, HashMap<String, String> errors)
     {
-        throw new NotImplementedException();
-    }
+        HashMap<String, String> localErrors = new HashMap<>();
+        String methodKey = "Equipment_CreateEquipment";
 
-    public Equipment[] getEquipmentByName(String name)
-    {
-        throw new NotImplementedException();
-    }
+        if(name == null)
+        {
+            localErrors.put(methodKey, "Please supply an name for this equipment");
+        }
 
-    public Equipment[] getEquipmentByBrand(EquipmentBrand brand)
-    {
-        throw new NotImplementedException();
-    }
+        if(brand == null)
+        {
+            localErrors.put(methodKey, "Please supply a brand for this equipment");
+        }
 
-    public Equipment[] getEquipmentByDatePurchased(Date date)
-    {
-        throw new NotImplementedException();
-    }
+        if(purchased == null)
+        {
+            localErrors.put(methodKey, "Please specify when this equipment was purchased");
+        }
+        else
+        {
+            Date today = new Date();
+            if(purchased.before(today))
+            {
+                localErrors.put(methodKey, "Please enter a valid date for when this equipment was purchased");
+            }
+        }
 
-    public Equipment[] getEquipmentPurchasedBetween(Date from, Date to)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Boolean updateEquipmentName(Equipment equ, String name)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Boolean updateEquipmentBrand(Equipment equ, EquipmentBrand brand)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Boolean updateEquipmentDate(Equipment equ, Date date)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Equipment createEquipment(String name, EquipmentBrand brand, Date date)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Equipment createEquipment(String name, EquipmentBrand brand)
-    {
-        throw new NotImplementedException();
-    }
-
-    public EquipmentBooking[] getAllEquipmentBookings()
-    {
-        throw new NotImplementedException();
-    }
-
-    public EquipmentBooking[] getEquipmentBookingByMember(Member mem)
-    {
-        throw new NotImplementedException();
-    }
-
-    public EquipmentBooking[] getEquipmentBookingByCourse(Course course)
-    {
-        throw new NotImplementedException();
-    }
-
-    public EquipmentBooking[] getEquipmentBookingByEquipment(Equipment equipment)
-    {
-        throw new NotImplementedException();
-    }
-
-    public EquipmentBooking[] getEquipmentBookingBookedOn(Date bookedOn)
-    {
-        throw new NotImplementedException();
-    }
-
-    public EquipmentBooking[] getEquipmentBookedBetween(Date to, Date from)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Boolean updateEquipmentBookingMember(EquipmentBooking eBooking, Member mem)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Boolean updateEquipmentBookingCourse(EquipmentBooking eBooking, Course course)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Boolean updateEquipmentBookingEquipment(EquipmentBooking eBooking, Equipment equipment)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Boolean updateEquipmentBookingDate(EquipmentBooking eBooking, Date date)
-    {
-        throw new NotImplementedException();
-    }
-
-    public EquipmentBooking createEquipmentBooking(Member mem, Course course, Equipment equipment, Date date)
-    {
-        throw new NotImplementedException();
-    }
-
-    public EquipmentBooking createEquipmentBooking(Member mem, Course course, Equipment equipment)
-    {
-        return createEquipmentBooking(mem, course, equipment, null);
-    }
-
-    public EquipmentBooking createEquipmentBooking(Member mem, Equipment equipment, Date date)
-    {
-        return createEquipmentBooking(mem, null, equipment, date);
-    }
-
-    public EquipmentBooking createEquipmentBooking(Member mem, Equipment equipment)
-    {
-        return createEquipmentBooking(mem, null, equipment, null);
+        if(localErrors.size() > 0)
+        {
+            errors.putAll(localErrors);
+            return null;
+        }
+        else
+        {
+            Equipment newEquipment = EquipmentFactory.newEquipment(type, name, brand, purchased, lastService);
+            _allEntities.add(newEquipment);
+            return newEquipment;
+        }
     }
 }

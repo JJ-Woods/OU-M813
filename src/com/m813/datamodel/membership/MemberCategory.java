@@ -1,12 +1,21 @@
 package com.m813.datamodel.membership;
 
-public class MemberCategory
+import com.m813.datamodel.IEntity;
+
+public class MemberCategory extends IEntity
 {
     private String CategoryName;
 
     private int CategoryDuration;
 
     private float CategoryCost;
+
+    public MemberCategory(String name, int duration, float cost)
+    {
+        CategoryName = name;
+        CategoryDuration = duration;
+        CategoryCost = cost;
+    }
 
     public String getCategoryName()
     {

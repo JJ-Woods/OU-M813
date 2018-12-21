@@ -1,13 +1,14 @@
 package com.m813.datamodel.equipment;
 
+import com.m813.datamodel.IEntity;
 import com.m813.datamodel.membership.*;
 import com.m813.datamodel.training.*;
 
 import java.util.Date;
 
-public class EquipmentBooking
+public class EquipmentBooking extends IEntity
 {
-    private com.m813.datamodel.membership.Member Member;
+    private Member Member;
 
     private Course Course;
 
@@ -16,6 +17,15 @@ public class EquipmentBooking
     private Date StartDate;
 
     private Date EndDate;
+
+    public EquipmentBooking(Member member, Course course, Equipment equipment, Date startDate, Date endDate)
+    {
+        Member = member;
+        Course = course;
+        Equipment = equipment;
+        StartDate = startDate;
+        EndDate = endDate;
+    }
 
     public Member getMember()
     {

@@ -1,11 +1,11 @@
 package com.m813.repositories;
 
+import com.m813.NotImplementedException;
 import com.m813.datamodel.certification.*;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
 
-public class QualificationRepository
+public class QualificationRepository extends RepositoryBase
 {
     private List<Certification> allQualifications;
 
